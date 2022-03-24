@@ -1,5 +1,7 @@
 package com.lti.scholarship.nationalscholarship;
 
+import java.util.Arrays;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +18,7 @@ import com.lti.scholarship.nationalscholarship.entity.IntermediateDetails;
 import com.lti.scholarship.nationalscholarship.entity.MinistryOfficer;
 import com.lti.scholarship.nationalscholarship.entity.OtherPersonalDetails;
 import com.lti.scholarship.nationalscholarship.entity.StateOfficer;
+import com.lti.scholarship.nationalscholarship.entity.Student;
 import com.lti.scholarship.nationalscholarship.entity.StudentRegistrationForm;
 import com.lti.scholarship.nationalscholarship.entity.TenthDetails;
 import com.lti.scholarship.nationalscholarship.repository.InstituteRepository;
@@ -24,8 +27,12 @@ import com.lti.scholarship.nationalscholarship.repository.StateRepository;
 import com.lti.scholarship.nationalscholarship.repository.StudentRegistrationRepository;
 import com.lti.scholarship.nationalscholarship.repository.StudentRepository;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
+
 @SpringBootApplication
 @EnableJpaRepositories
+@OpenAPIDefinition(info = @Info(title = "National ScholarShip API", version = "1.0", description = "National ScholarShip Application"))
 public class NationalscholarshipApplication implements CommandLineRunner {
 
 	@Autowired
@@ -51,16 +58,20 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		/*
-		 * Student student = new Student(); student.setName("Yamuna");
-		 * student.setGender("Female"); student.setMobNum("9876543210");
-		 * student.setEmail("Yamuna27@gmail.com"); student.setInstitutionCode("Lti123");
-		 * student.setAadharNum(123456); student.setStateOfDomicile("Ap");
-		 * student.setPassword("Yamuna@123"); student.setConfirmPassword("Yamuna@123");
-		 * studentRepository.save(student);
-		 * 
-		 * System.out.println("Student object has been inserted==========>");
-		 */
-		/*
+		Student student = new Student();
+		student.setName("Yamuna");
+		student.setGender("Female");
+		student.setMobNum("9876543210");
+		student.setEmail("Yamuna27@gmail.com");
+		student.setInstitutionCode("Lti123");
+		student.setAadharNum(123456);
+		student.setStateOfDomicile("Ap");
+		student.setPassword("Yamuna@123");
+		student.setConfirmPassword("Yamuna@123");
+		studentRepository.save(student);
+
+		System.out.println("Student object has been inserted==========>");
+
 		Institute institute = new Institute();
 		institute.setAadharNumber((long) 21293326);
 		institute.setInstitutionName("Lti");
@@ -126,7 +137,6 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 		academicDetails.setClassStartDate("March");
 		academicDetails.setInstituteName("ST.JOHNS");
 		academicDetails.setModeOfStudy("Regular");
-		academicDetails.setScholarShipId(1234);
 		academicDetails.setPresentClassOrCourse("BTech");
 		academicDetails.setPresentClassOrCourseYear(4);
 		academicDetails.setPreviousClassCourse("Inter");
@@ -134,25 +144,23 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 		academicDetails.setPreviousPercentage(23.4);
 		academicDetails.setPresentClassOrCourseYear(4);
 		academicDetails.setPresentClassOrCourse("Bte");
-		academicDetails.setScholarShipId(12);
+		academicDetails.setScholarShipName("ASMS");
 
 		// setting to studentform
 
-		studentRegistrationForm.getAcademicDetailsList().add(academicDetails);
+		studentRegistrationForm.setAcademicDetailsList(Arrays.asList(academicDetails));
 
-		// basic form
 		BasicDetails basicDetails = new BasicDetails();
 		basicDetails.setFamilyIncome(480000.00);
 		basicDetails.setFatherName("Venu");
 		basicDetails.setMotherName("Sumitra");
 		basicDetails.setReligion("Hindu");
 		basicDetails.setCommunityOrCategory("OBC");
-		basicDetails.setScholarShipId(12);
+		basicDetails.setScholarShipName("LAPS");
 
 		// setting to studentform
-		studentRegistrationForm.getBasicDetails().add(basicDetails);
+		studentRegistrationForm.setBasicDetails(Arrays.asList(basicDetails));
 
-		// contactDetails
 		ContactDetails contactDetails = new ContactDetails();
 		contactDetails.setDistrict("Kurnool");
 		contactDetails.setBlockOrTaluka("Adoni");
@@ -160,51 +168,47 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 		contactDetails.setPinCode(518301);
 		contactDetails.setState("Ap");
 		contactDetails.setStreetNumber("RsColony");
-		contactDetails.setScholarShipId(12);
+		contactDetails.setScholarShipName("laps");
 
 		// setting to studentform
-		studentRegistrationForm.getContactDetails().add(contactDetails);
+		studentRegistrationForm.setContactDetails(Arrays.asList(contactDetails));
 
-		// documentsUpload
 		DocumentsUpload documentsUpload = new DocumentsUpload();
-		documentsUpload.setAadharCard(true);
-		documentsUpload.setBankPassbook(true);
+		documentsUpload.setAadharCard("C:\\fakepath\\download.htm");
+		documentsUpload.setBankPassbook("C:\\fakepath\\download.htm");
 		;
-		documentsUpload.setDomicileCert(true);
-		documentsUpload.setCasteOrIncomeCert(true);
-		documentsUpload.setStudentPhoto(true);
-		documentsUpload.setInstituteIdCard(true);
-		documentsUpload.setInterMarkSheet(true);
-		documentsUpload.setFeeReceiptOfCurrentYear(true);
-		documentsUpload.setTenthMarkSheet(true);
-		documentsUpload.setPreviousYearMarkSheet(true);
+		documentsUpload.setDomicileCert("C:\\fakepath\\download.htm");
+		documentsUpload.setCasteOrIncomeCert("C:\\fakepath\\download.htm");
+		documentsUpload.setStudentPhoto("C:\\fakepath\\download.htm");
+		documentsUpload.setInstituteIdCard("C:\\fakepath\\download.htm");
+		documentsUpload.setInterMarkSheet("C:\\fakepath\\download.htm");
+		documentsUpload.setFeeReceiptOfCurrentYear("C:\\fakepath\\download.htm");
+		documentsUpload.setTenthMarkSheet("C:\\fakepath\\download.htm");
+		documentsUpload.setPreviousYearMarkSheet("C:\\fakepath\\download.htm");
 		documentsUpload.setDocTermsAndConditions(true);
-		documentsUpload.setScholarShipId(12);
+		documentsUpload.setScholarShipName("asms");
 
 		// setting to studentform
-		studentRegistrationForm.getDocumentsUploads().add(documentsUpload);
-
-		// feeDetails
+		studentRegistrationForm.setDocumentsUploads(Arrays.asList(documentsUpload));
+		
 		FeeDetails feeDetails = new FeeDetails();
 		feeDetails.setAdmissionFee(98760.00);
 		feeDetails.setTuitionFee(10000.00);
 		feeDetails.setOtherFee(9890.00);
-		feeDetails.setScholarShipId(12);
+		feeDetails.setScholarShipName("abc");
 
 		// setting to studentform
-		studentRegistrationForm.getFeeDetails().add(feeDetails);
-
-		// interDetails
+		studentRegistrationForm.setFeeDetails(Arrays.asList(feeDetails));
+		
 		IntermediateDetails intermediateDetails = new IntermediateDetails();
 		intermediateDetails.setInterBoardName("Jntua");
 		intermediateDetails.setInterPassingYear(2021);
 		intermediateDetails.setInterPercentageObtained(81);
 		intermediateDetails.setInterRollNumber("17g31");
-		intermediateDetails.setScholarShipId(12);
+		intermediateDetails.setScholarShipName("xyz");
 
 		// setting to studentform
-		studentRegistrationForm.getIntermediateDetails().add(intermediateDetails);
-
+		studentRegistrationForm.setIntermediateDetails(Arrays.asList(intermediateDetails));
 		// otherPersonalDetails
 
 		OtherPersonalDetails otherPersonalDetails = new OtherPersonalDetails();
@@ -213,31 +217,20 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 		otherPersonalDetails.setParentsProfession("Agriculture");
 		otherPersonalDetails.setTypeOfDisability("No");
 		otherPersonalDetails.setPercentageOfDisability(0.00);
-		otherPersonalDetails.setScholarShipId(12);
+		otherPersonalDetails.setScholarShipName("pqr");
 
 		// setting to studentform
-		studentRegistrationForm.getOtherPersonalDetails().add(otherPersonalDetails);
-
-		// tenthDetails
+		studentRegistrationForm.setOtherPersonalDetails(Arrays.asList(otherPersonalDetails));
+		
 		TenthDetails tenthDetails = new TenthDetails();
 		tenthDetails.setSscBoardName("SSC");
 		tenthDetails.setSscPassingYear(2021);
 		tenthDetails.setSscPercentageObtained(70);
 		tenthDetails.setSscRollNumber("17G31");
-		tenthDetails.setScholarShipId(12);
+		tenthDetails.setScholarShipName("lmn");
 
 		// setting to studentform
-		studentRegistrationForm.getTenthDetails().add(tenthDetails);
-
-
-		academicDetails.setStudentRegistrationForm(studentRegistrationForm);
-		basicDetails.setStudentRegistrationForm(studentRegistrationForm);
-		contactDetails.setStudentRegistrationForm(studentRegistrationForm);
-		documentsUpload.setStudentRegistrationForm(studentRegistrationForm);
-		feeDetails.setStudentRegistrationForm(studentRegistrationForm);
-		intermediateDetails.setStudentRegistrationForm(studentRegistrationForm);
-		otherPersonalDetails.setStudentRegistrationForm(studentRegistrationForm);
-		tenthDetails.setStudentRegistrationForm(studentRegistrationForm);
+		studentRegistrationForm.setTenthDetails(Arrays.asList(tenthDetails));
 		System.out.println("=================>Before saving:");
 		StudentRegistrationForm entity = studentRegistrationRepository.save(studentRegistrationForm);
 
@@ -260,12 +253,11 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 		studentRegistrationForm1.setMobileNumber("12345678");
 		studentRegistrationForm1.setInstituteId("123456");
 
-		// academic insert
 		AcademicDetails academicDetails1 = new AcademicDetails();
 		academicDetails1.setClassStartDate("March");
 		academicDetails1.setInstituteName("ST.JOHNS");
 		academicDetails1.setModeOfStudy("Regular");
-		academicDetails1.setScholarShipId(123);
+		academicDetails1.setScholarShipName("efg");
 		academicDetails1.setPresentClassOrCourse("BTech");
 		academicDetails1.setPresentClassOrCourseYear(4);
 		academicDetails1.setPreviousClassCourse("Inter");
@@ -275,104 +267,88 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 		academicDetails1.setPresentClassOrCourse("Bte");
 
 		// setting to studentform
-		studentRegistrationForm1.getAcademicDetailsList().add(academicDetails1);
+		studentRegistrationForm.setAcademicDetailsList(Arrays.asList(academicDetails1));
 
-		// basic form
 		BasicDetails basicDetails1 = new BasicDetails();
 		basicDetails1.setFamilyIncome(480000.00);
 		basicDetails1.setFatherName("Venu");
 		basicDetails1.setMotherName("Sumitra");
 		basicDetails1.setReligion("Hindu");
 		basicDetails1.setCommunityOrCategory("OBC");
-		basicDetails1.setScholarShipId(123);
+		basicDetails1.setScholarShipName("stu");
 
 		// setting to studentform
-		studentRegistrationForm1.getBasicDetails().add(basicDetails1);
+		studentRegistrationForm.setBasicDetails(Arrays.asList(basicDetails1));
 
-		// contactDetails
-		ContactDetails contactDetails1 = new ContactDetails();
+	    ContactDetails contactDetails1 = new ContactDetails();
 		contactDetails1.setDistrict("Kurnool");
 		contactDetails1.setBlockOrTaluka("Adoni");
 		contactDetails1.setHouseNumber("1/140A");
 		contactDetails1.setPinCode(518301);
 		contactDetails1.setState("Ap");
 		contactDetails1.setStreetNumber("RsColony");
-		contactDetails1.setScholarShipId(123);
+		contactDetails1.setScholarShipName("National");
 
 		// setting to studentform
-		studentRegistrationForm1.getContactDetails().add(contactDetails1);
+		studentRegistrationForm.setContactDetails(Arrays.asList(contactDetails1));
 
-		// documentsUpload
 		DocumentsUpload documentsUpload1 = new DocumentsUpload();
-		documentsUpload1.setAadharCard(true);
-		documentsUpload1.setBankPassbook(true);
-		;
-		documentsUpload1.setDomicileCert(true);
-		documentsUpload1.setCasteOrIncomeCert(true);
-		documentsUpload1.setStudentPhoto(true);
-		documentsUpload1.setInstituteIdCard(true);
-		documentsUpload1.setInterMarkSheet(true);
-		documentsUpload1.setFeeReceiptOfCurrentYear(true);
-		documentsUpload1.setTenthMarkSheet(true);
-		documentsUpload1.setPreviousYearMarkSheet(true);
+		documentsUpload1.setAadharCard("C:\\fakepath\\download.htm");
+		documentsUpload1.setBankPassbook("C:\\fakepath\\download.htm");
+
+		documentsUpload1.setDomicileCert("C:\\fakepath\\download.htm");
+		documentsUpload1.setCasteOrIncomeCert("C:\\fakepath\\download.htm");
+		documentsUpload1.setStudentPhoto("C:\\fakepath\\download.htm");
+		documentsUpload1.setInstituteIdCard("C:\\fakepath\\download.htm");
+		documentsUpload1.setInterMarkSheet("C:\\fakepath\\download.htm");
+		documentsUpload1.setFeeReceiptOfCurrentYear("C:\\fakepath\\download.htm");
+		documentsUpload1.setTenthMarkSheet("C:\\fakepath\\download.htm");
+		documentsUpload1.setPreviousYearMarkSheet("C:\\fakepath\\download.htm");
 		documentsUpload1.setDocTermsAndConditions(true);
-		documentsUpload1.setScholarShipId(123);
+		documentsUpload1.setScholarShipName("NS");
 
 		// setting to studentform
-		studentRegistrationForm1.getDocumentsUploads().add(documentsUpload1);
+		studentRegistrationForm.setDocumentsUploads(Arrays.asList(documentsUpload1));
 
-		// feeDetails
 		FeeDetails feeDetails1 = new FeeDetails();
 		feeDetails1.setAdmissionFee(98760.00);
 		feeDetails1.setTuitionFee(10000.00);
 		feeDetails1.setOtherFee(9890.00);
-		feeDetails1.setScholarShipId(123);
+		feeDetails1.setScholarShipName("ijk");
 
 		// setting to studentform
-		studentRegistrationForm1.getFeeDetails().add(feeDetails1);
+		studentRegistrationForm.setFeeDetails(Arrays.asList(feeDetails1));
 
-		// interDetails
 		IntermediateDetails intermediateDetails1 = new IntermediateDetails();
 		intermediateDetails1.setInterBoardName("Jntua");
 		intermediateDetails1.setInterPassingYear(2021);
 		intermediateDetails1.setInterPercentageObtained(81);
 		intermediateDetails1.setInterRollNumber("17g31");
-		intermediateDetails1.setScholarShipId(123);
+		intermediateDetails1.setScholarShipName("zxc");
 
 		// setting to studentform
-		studentRegistrationForm1.getIntermediateDetails().add(intermediateDetails1);
+		studentRegistrationForm.setIntermediateDetails(Arrays.asList(intermediateDetails1));
 
-		// otherPersonalDetails
 		OtherPersonalDetails otherPersonalDetails1 = new OtherPersonalDetails();
 		otherPersonalDetails1.setDisabled(false);
 		otherPersonalDetails1.setMaritalStatus("Unmarried");
 		otherPersonalDetails1.setParentsProfession("Agriculture");
 		otherPersonalDetails1.setTypeOfDisability("No");
 		otherPersonalDetails1.setPercentageOfDisability(0.00);
-		otherPersonalDetails1.setScholarShipId(123);
+		otherPersonalDetails1.setScholarShipName("mnb");
 
 		// setting to studentform
-		studentRegistrationForm1.getOtherPersonalDetails().add(otherPersonalDetails1);
+		studentRegistrationForm.setOtherPersonalDetails(Arrays.asList(otherPersonalDetails1));
 
-		// tenthDetails
 		TenthDetails tenthDetails1 = new TenthDetails();
 		tenthDetails1.setSscBoardName("SSC");
 		tenthDetails1.setSscPassingYear(2021);
 		tenthDetails1.setSscPercentageObtained(70);
 		tenthDetails1.setSscRollNumber("17G31");
-		tenthDetails1.setScholarShipId(123);
+		tenthDetails1.setScholarShipName("asd");
 
 		// setting to studentform
-		studentRegistrationForm1.getTenthDetails().add(tenthDetails1);
-
-		academicDetails1.setStudentRegistrationForm(studentRegistrationForm1);
-		basicDetails1.setStudentRegistrationForm(studentRegistrationForm1);
-		contactDetails1.setStudentRegistrationForm(studentRegistrationForm1);
-		documentsUpload1.setStudentRegistrationForm(studentRegistrationForm1);
-		feeDetails1.setStudentRegistrationForm(studentRegistrationForm1);
-		intermediateDetails1.setStudentRegistrationForm(studentRegistrationForm1);
-		otherPersonalDetails1.setStudentRegistrationForm(studentRegistrationForm1);
-		tenthDetails1.setStudentRegistrationForm(studentRegistrationForm1);
+		studentRegistrationForm.setTenthDetails(Arrays.asList(tenthDetails1));
 
 		System.out.println("=================>Before saving:");
 
@@ -380,7 +356,6 @@ public class NationalscholarshipApplication implements CommandLineRunner {
 
 		System.out.println("2nd recored saved=====================================>");
 		*/
-
 	}
 
 }

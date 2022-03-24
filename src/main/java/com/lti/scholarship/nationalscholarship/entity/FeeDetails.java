@@ -21,27 +21,26 @@ public class FeeDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fee_gen")
 	@SequenceGenerator(name = "fee_gen", sequenceName = "fee_seq", allocationSize = 1)
 	private int id;
-
+    /*
 	@JsonBackReference
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "aadharNumber")
 	private StudentRegistrationForm studentRegistrationForm;
-
+    */
 	private double admissionFee;
 	private double tuitionFee;
 	private double otherFee;
-	private int scholarShipId;
+	private String scholarShipName;
 	
-	public FeeDetails(int id, StudentRegistrationForm studentRegistrationForm, double admissionFee, double tuitionFee,
-			double otherFee, int scholarShipId) {
+	public FeeDetails(int id, double admissionFee, double tuitionFee,
+			double otherFee, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.admissionFee = admissionFee;
 		this.tuitionFee = tuitionFee;
 		this.otherFee = otherFee;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
 	
 	public FeeDetails() {
@@ -54,14 +53,6 @@ public class FeeDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public double getAdmissionFee() {
@@ -88,12 +79,12 @@ public class FeeDetails {
 		this.otherFee = otherFee;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
 	
 	

@@ -21,32 +21,36 @@ public class DocumentsUpload {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "document_gen")
 	@SequenceGenerator(name = "document_gen", sequenceName = "document_seq", allocationSize = 1)
 	private int id;
+	/*
 	@JsonBackReference
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "aadharNumber")
 	private StudentRegistrationForm studentRegistrationForm;
-	
-	private boolean domicileCert;
-	private boolean studentPhoto;
-	private boolean instituteIdCard;
-	private boolean casteOrIncomeCert;
-	private boolean previousYearMarkSheet;
-	private boolean feeReceiptOfCurrentYear;
-	private boolean bankPassbook;
-	private boolean aadharCard;
-	private boolean tenthMarkSheet;
-	private boolean interMarkSheet;
+	*/
+	private String domicileCert;
+	private String studentPhoto;
+	private String instituteIdCard;
+	private String casteOrIncomeCert;
+	private String previousYearMarkSheet;
+	private String feeReceiptOfCurrentYear;
+	private String bankPassbook;
+	private String aadharCard;
+	private String tenthMarkSheet;
+	private String interMarkSheet;
 	private boolean docTermsAndConditions;
-	private int scholarShipId;
+	private String scholarShipName;
 	
-	public DocumentsUpload(int id, StudentRegistrationForm studentRegistrationForm, boolean domicileCert,
-			boolean studentPhoto, boolean instituteIdCard, boolean casteOrIncomeCert, boolean previousYearMarkSheet,
-			boolean feeReceiptOfCurrentYear, boolean bankPassbook, boolean aadharCard, boolean tenthMarkSheet,
-			boolean interMarkSheet, boolean docTermsAndConditions, int scholarShipId) {
+	public DocumentsUpload() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public DocumentsUpload(int id,  String domicileCert,
+			String studentPhoto, String instituteIdCard, String casteOrIncomeCert, String previousYearMarkSheet,
+			String feeReceiptOfCurrentYear, String bankPassbook, String aadharCard, String tenthMarkSheet,
+			String interMarkSheet, boolean docTermsAndConditions, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.domicileCert = domicileCert;
 		this.studentPhoto = studentPhoto;
 		this.instituteIdCard = instituteIdCard;
@@ -58,125 +62,87 @@ public class DocumentsUpload {
 		this.tenthMarkSheet = tenthMarkSheet;
 		this.interMarkSheet = interMarkSheet;
 		this.docTermsAndConditions = docTermsAndConditions;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
-	
-	public DocumentsUpload() {
-		
-	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
-	}
-
-	public boolean isDomicileCert() {
+	
+	public String getDomicileCert() {
 		return domicileCert;
 	}
-
-	public void setDomicileCert(boolean domicileCert) {
+	public void setDomicileCert(String domicileCert) {
 		this.domicileCert = domicileCert;
 	}
-
-	public boolean isStudentPhoto() {
+	public String getStudentPhoto() {
 		return studentPhoto;
 	}
-
-	public void setStudentPhoto(boolean studentPhoto) {
+	public void setStudentPhoto(String studentPhoto) {
 		this.studentPhoto = studentPhoto;
 	}
-
-	public boolean isInstituteIdCard() {
+	public String getInstituteIdCard() {
 		return instituteIdCard;
 	}
-
-	public void setInstituteIdCard(boolean instituteIdCard) {
+	public void setInstituteIdCard(String instituteIdCard) {
 		this.instituteIdCard = instituteIdCard;
 	}
-
-	public boolean isCasteOrIncomeCert() {
+	public String getCasteOrIncomeCert() {
 		return casteOrIncomeCert;
 	}
-
-	public void setCasteOrIncomeCert(boolean casteOrIncomeCert) {
+	public void setCasteOrIncomeCert(String casteOrIncomeCert) {
 		this.casteOrIncomeCert = casteOrIncomeCert;
 	}
-
-	public boolean isPreviousYearMarkSheet() {
+	public String getPreviousYearMarkSheet() {
 		return previousYearMarkSheet;
 	}
-
-	public void setPreviousYearMarkSheet(boolean previousYearMarkSheet) {
+	public void setPreviousYearMarkSheet(String previousYearMarkSheet) {
 		this.previousYearMarkSheet = previousYearMarkSheet;
 	}
-
-	public boolean isFeeReceiptOfCurrentYear() {
+	public String getFeeReceiptOfCurrentYear() {
 		return feeReceiptOfCurrentYear;
 	}
-
-	public void setFeeReceiptOfCurrentYear(boolean feeReceiptOfCurrentYear) {
+	public void setFeeReceiptOfCurrentYear(String feeReceiptOfCurrentYear) {
 		this.feeReceiptOfCurrentYear = feeReceiptOfCurrentYear;
 	}
-
-	public boolean isBankPassbook() {
+	public String getBankPassbook() {
 		return bankPassbook;
 	}
-
-	public void setBankPassbook(boolean bankPassbook) {
+	public void setBankPassbook(String bankPassbook) {
 		this.bankPassbook = bankPassbook;
 	}
-
-	public boolean isAadharCard() {
+	public String getAadharCard() {
 		return aadharCard;
 	}
-
-	public void setAadharCard(boolean aadharCard) {
+	public void setAadharCard(String aadharCard) {
 		this.aadharCard = aadharCard;
 	}
-
-	public boolean isTenthMarkSheet() {
+	public String getTenthMarkSheet() {
 		return tenthMarkSheet;
 	}
-
-	public void setTenthMarkSheet(boolean tenthMarkSheet) {
+	public void setTenthMarkSheet(String tenthMarkSheet) {
 		this.tenthMarkSheet = tenthMarkSheet;
 	}
-
-	public boolean isInterMarkSheet() {
+	public String getInterMarkSheet() {
 		return interMarkSheet;
 	}
-
-	public void setInterMarkSheet(boolean interMarkSheet) {
+	public void setInterMarkSheet(String interMarkSheet) {
 		this.interMarkSheet = interMarkSheet;
 	}
-
 	public boolean isDocTermsAndConditions() {
 		return docTermsAndConditions;
 	}
-
 	public void setDocTermsAndConditions(boolean docTermsAndConditions) {
 		this.docTermsAndConditions = docTermsAndConditions;
 	}
-
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
-
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
-
 	
-	
+		
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import lombok.Builder;
 import lombok.ToString;
@@ -35,50 +36,66 @@ public class StudentRegistrationForm {
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.AcademicDetails> academicDetailsList = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = AcademicDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<AcademicDetails> academicDetailsList;
 
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.BasicDetails> basicDetails = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = BasicDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<BasicDetails> basicDetails;
 	
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.ContactDetails> contactDetails = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = ContactDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<ContactDetails> contactDetails;
 
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.DocumentsUpload> documentsUploads = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = DocumentsUpload.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<DocumentsUpload> documentsUploads;
 
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.FeeDetails> feeDetails = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = FeeDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<FeeDetails> feeDetails;
 
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.IntermediateDetails> intermediateDetails = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = IntermediateDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<IntermediateDetails> intermediateDetails;
 
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<com.lti.scholarship.nationalscholarship.entity.OtherPersonalDetails> otherPersonalDetails = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = OtherPersonalDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<OtherPersonalDetails> otherPersonalDetails;
 
 	@JsonManagedReference
 	@ToString.Exclude
     //@JsonIgnore
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
-	private List<TenthDetails> tenthDetails = new ArrayList<>();
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "studentRegistrationForm")
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = TenthDetails.class)
+	@JoinColumn(name = "aadhar_fk", referencedColumnName = "aadharNumber")
+	private List<TenthDetails> tenthDetails;
 
 	public StudentRegistrationForm(Long aadharNumber, String stateOfDomicile, String districtOfDomicile, String name,
 			String dob, String gender, String mobileNumber, String emailId, String instituteId, String bankName,

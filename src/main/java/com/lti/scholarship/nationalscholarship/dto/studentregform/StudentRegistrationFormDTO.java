@@ -1,8 +1,6 @@
 package com.lti.scholarship.nationalscholarship.dto.studentregform;
 
-import lombok.Builder;
 
-@Builder
 public class StudentRegistrationFormDTO {
 	public Long aadharNumber;
 	public String stateOfDomicile;
@@ -28,7 +26,7 @@ public class StudentRegistrationFormDTO {
 	public String previousClassCourse;
 	public int previousPassingYear;
 	public double previousPercentage;
-	public int scholarShipId;
+	public String scholarShipName;
 	public String religion;
 	public String communityOrCategory;
 	public String fatherName;
@@ -40,16 +38,16 @@ public class StudentRegistrationFormDTO {
 	public String houseNumber;
 	public String streetNumber;
 	public int pinCode;
-	public boolean domicileCert;
-	public boolean studentPhoto;
-	public boolean instituteIdCard;
-	public boolean casteOrIncomeCert;
-	public boolean previousYearMarkSheet;
-	public boolean feeReceiptOfCurrentYear;
-	public boolean bankPassbook;
-	public boolean aadharCard;
-	public boolean tenthMarkSheet;
-	public boolean interMarkSheet;
+	public String domicileCert;
+	public String studentPhoto;
+	public String instituteIdCard;
+	public String casteOrIncomeCert;
+	public String previousYearMarkSheet;
+	public String feeReceiptOfCurrentYear;
+	public String bankPassbook;
+	public String aadharCard;
+	public String tenthMarkSheet;
+	public String interMarkSheet;
 	public boolean docTermsAndConditions;
 	public double admissionFee;
 	public double tuitionFee;
@@ -67,18 +65,20 @@ public class StudentRegistrationFormDTO {
 	public String sscBoardName;
 	public int sscPassingYear;
 	public double sscPercentageObtained;
-	
+	public StudentRegistrationFormDTO() {
+		
+	}
 	public StudentRegistrationFormDTO(Long aadharNumber, String stateOfDomicile, String districtOfDomicile, String name,
 			String dob, String gender, String mobileNumber, String emailId, String instituteId, String bankName,
 			String ifscCode, long accountNumber, String password, String confirmPassword,
 			boolean regFormTermsAndConditions, String instituteName, String presentClassOrCourse,
 			int presentClassOrCourseYear, String modeOfStudy, String classStartDate, String universityOrBoardName,
-			String previousClassCourse, int previousPassingYear, double previousPercentage, int scholarShipId,
+			String previousClassCourse, int previousPassingYear, double previousPercentage, String scholarShipName,
 			String religion, String communityOrCategory, String fatherName, String motherName, double familyIncome,
 			String state, String district, String blockOrTaluka, String houseNumber, String streetNumber, int pinCode,
-			boolean domicileCert, boolean studentPhoto, boolean instituteIdCard, boolean casteOrIncomeCert,
-			boolean previousYearMarkSheet, boolean feeReceiptOfCurrentYear, boolean bankPassbook, boolean aadharCard,
-			boolean tenthMarkSheet, boolean interMarkSheet, boolean docTermsAndConditions, double admissionFee,
+			String domicileCert, String studentPhoto, String instituteIdCard, String casteOrIncomeCert,
+			String previousYearMarkSheet, String feeReceiptOfCurrentYear, String bankPassbook, String aadharCard,
+			String tenthMarkSheet, String interMarkSheet, boolean docTermsAndConditions, double admissionFee,
 			double tuitionFee, double otherFee, String interRollNumber, String interBoardName, int interPassingYear,
 			double interPercentageObtained, String typeOfDisability, double percentageOfDisability,
 			String maritalStatus, String parentsProfession, boolean disabled, String sscRollNumber, String sscBoardName,
@@ -108,7 +108,7 @@ public class StudentRegistrationFormDTO {
 		this.previousClassCourse = previousClassCourse;
 		this.previousPassingYear = previousPassingYear;
 		this.previousPercentage = previousPercentage;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 		this.religion = religion;
 		this.communityOrCategory = communityOrCategory;
 		this.fatherName = fatherName;
@@ -148,514 +148,385 @@ public class StudentRegistrationFormDTO {
 		this.sscPassingYear = sscPassingYear;
 		this.sscPercentageObtained = sscPercentageObtained;
 	}
-	
-	public StudentRegistrationFormDTO()	{
-		
-	}
-
 	public Long getAadharNumber() {
 		return aadharNumber;
 	}
-
 	public void setAadharNumber(Long aadharNumber) {
 		this.aadharNumber = aadharNumber;
 	}
-
 	public String getStateOfDomicile() {
 		return stateOfDomicile;
 	}
-
 	public void setStateOfDomicile(String stateOfDomicile) {
 		this.stateOfDomicile = stateOfDomicile;
 	}
-
 	public String getDistrictOfDomicile() {
 		return districtOfDomicile;
 	}
-
 	public void setDistrictOfDomicile(String districtOfDomicile) {
 		this.districtOfDomicile = districtOfDomicile;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getDob() {
 		return dob;
 	}
-
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-
 	public String getGender() {
 		return gender;
 	}
-
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
-
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-
 	public String getEmailId() {
 		return emailId;
 	}
-
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-
 	public String getInstituteId() {
 		return instituteId;
 	}
-
 	public void setInstituteId(String instituteId) {
 		this.instituteId = instituteId;
 	}
-
 	public String getBankName() {
 		return bankName;
 	}
-
 	public void setBankName(String bankName) {
 		this.bankName = bankName;
 	}
-
 	public String getIfscCode() {
 		return ifscCode;
 	}
-
 	public void setIfscCode(String ifscCode) {
 		this.ifscCode = ifscCode;
 	}
-
 	public long getAccountNumber() {
 		return accountNumber;
 	}
-
 	public void setAccountNumber(long accountNumber) {
 		this.accountNumber = accountNumber;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
-
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-
 	public boolean isRegFormTermsAndConditions() {
 		return regFormTermsAndConditions;
 	}
-
 	public void setRegFormTermsAndConditions(boolean regFormTermsAndConditions) {
 		this.regFormTermsAndConditions = regFormTermsAndConditions;
 	}
-
 	public String getInstituteName() {
 		return instituteName;
 	}
-
 	public void setInstituteName(String instituteName) {
 		this.instituteName = instituteName;
 	}
-
 	public String getPresentClassOrCourse() {
 		return presentClassOrCourse;
 	}
-
 	public void setPresentClassOrCourse(String presentClassOrCourse) {
 		this.presentClassOrCourse = presentClassOrCourse;
 	}
-
 	public int getPresentClassOrCourseYear() {
 		return presentClassOrCourseYear;
 	}
-
 	public void setPresentClassOrCourseYear(int presentClassOrCourseYear) {
 		this.presentClassOrCourseYear = presentClassOrCourseYear;
 	}
-
 	public String getModeOfStudy() {
 		return modeOfStudy;
 	}
-
 	public void setModeOfStudy(String modeOfStudy) {
 		this.modeOfStudy = modeOfStudy;
 	}
-
 	public String getClassStartDate() {
 		return classStartDate;
 	}
-
 	public void setClassStartDate(String classStartDate) {
 		this.classStartDate = classStartDate;
 	}
-
 	public String getUniversityOrBoardName() {
 		return universityOrBoardName;
 	}
-
 	public void setUniversityOrBoardName(String universityOrBoardName) {
 		this.universityOrBoardName = universityOrBoardName;
 	}
-
 	public String getPreviousClassCourse() {
 		return previousClassCourse;
 	}
-
 	public void setPreviousClassCourse(String previousClassCourse) {
 		this.previousClassCourse = previousClassCourse;
 	}
-
 	public int getPreviousPassingYear() {
 		return previousPassingYear;
 	}
-
 	public void setPreviousPassingYear(int previousPassingYear) {
 		this.previousPassingYear = previousPassingYear;
 	}
-
 	public double getPreviousPercentage() {
 		return previousPercentage;
 	}
-
 	public void setPreviousPercentage(double previousPercentage) {
 		this.previousPercentage = previousPercentage;
 	}
-
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
-
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
-
 	public String getReligion() {
 		return religion;
 	}
-
 	public void setReligion(String religion) {
 		this.religion = religion;
 	}
-
 	public String getCommunityOrCategory() {
 		return communityOrCategory;
 	}
-
 	public void setCommunityOrCategory(String communityOrCategory) {
 		this.communityOrCategory = communityOrCategory;
 	}
-
 	public String getFatherName() {
 		return fatherName;
 	}
-
 	public void setFatherName(String fatherName) {
 		this.fatherName = fatherName;
 	}
-
 	public String getMotherName() {
 		return motherName;
 	}
-
 	public void setMotherName(String motherName) {
 		this.motherName = motherName;
 	}
-
 	public double getFamilyIncome() {
 		return familyIncome;
 	}
-
 	public void setFamilyIncome(double familyIncome) {
 		this.familyIncome = familyIncome;
 	}
-
 	public String getState() {
 		return state;
 	}
-
 	public void setState(String state) {
 		this.state = state;
 	}
-
 	public String getDistrict() {
 		return district;
 	}
-
 	public void setDistrict(String district) {
 		this.district = district;
 	}
-
 	public String getBlockOrTaluka() {
 		return blockOrTaluka;
 	}
-
 	public void setBlockOrTaluka(String blockOrTaluka) {
 		this.blockOrTaluka = blockOrTaluka;
 	}
-
 	public String getHouseNumber() {
 		return houseNumber;
 	}
-
 	public void setHouseNumber(String houseNumber) {
 		this.houseNumber = houseNumber;
 	}
-
 	public String getStreetNumber() {
 		return streetNumber;
 	}
-
 	public void setStreetNumber(String streetNumber) {
 		this.streetNumber = streetNumber;
 	}
-
 	public int getPinCode() {
 		return pinCode;
 	}
-
 	public void setPinCode(int pinCode) {
 		this.pinCode = pinCode;
 	}
-
-	public boolean isDomicileCert() {
+	public String getDomicileCert() {
 		return domicileCert;
 	}
-
-	public void setDomicileCert(boolean domicileCert) {
+	public void setDomicileCert(String domicileCert) {
 		this.domicileCert = domicileCert;
 	}
-
-	public boolean isStudentPhoto() {
+	public String getStudentPhoto() {
 		return studentPhoto;
 	}
-
-	public void setStudentPhoto(boolean studentPhoto) {
+	public void setStudentPhoto(String studentPhoto) {
 		this.studentPhoto = studentPhoto;
 	}
-
-	public boolean isInstituteIdCard() {
+	public String getInstituteIdCard() {
 		return instituteIdCard;
 	}
-
-	public void setInstituteIdCard(boolean instituteIdCard) {
+	public void setInstituteIdCard(String instituteIdCard) {
 		this.instituteIdCard = instituteIdCard;
 	}
-
-	public boolean isCasteOrIncomeCert() {
+	public String getCasteOrIncomeCert() {
 		return casteOrIncomeCert;
 	}
-
-	public void setCasteOrIncomeCert(boolean casteOrIncomeCert) {
+	public void setCasteOrIncomeCert(String casteOrIncomeCert) {
 		this.casteOrIncomeCert = casteOrIncomeCert;
 	}
-
-	public boolean isPreviousYearMarkSheet() {
+	public String getPreviousYearMarkSheet() {
 		return previousYearMarkSheet;
 	}
-
-	public void setPreviousYearMarkSheet(boolean previousYearMarkSheet) {
+	public void setPreviousYearMarkSheet(String previousYearMarkSheet) {
 		this.previousYearMarkSheet = previousYearMarkSheet;
 	}
-
-	public boolean isFeeReceiptOfCurrentYear() {
+	public String getFeeReceiptOfCurrentYear() {
 		return feeReceiptOfCurrentYear;
 	}
-
-	public void setFeeReceiptOfCurrentYear(boolean feeReceiptOfCurrentYear) {
+	public void setFeeReceiptOfCurrentYear(String feeReceiptOfCurrentYear) {
 		this.feeReceiptOfCurrentYear = feeReceiptOfCurrentYear;
 	}
-
-	public boolean isBankPassbook() {
+	public String getBankPassbook() {
 		return bankPassbook;
 	}
-
-	public void setBankPassbook(boolean bankPassbook) {
+	public void setBankPassbook(String bankPassbook) {
 		this.bankPassbook = bankPassbook;
 	}
-
-	public boolean isAadharCard() {
+	public String getAadharCard() {
 		return aadharCard;
 	}
-
-	public void setAadharCard(boolean aadharCard) {
+	public void setAadharCard(String aadharCard) {
 		this.aadharCard = aadharCard;
 	}
-
-	public boolean isTenthMarkSheet() {
+	public String getTenthMarkSheet() {
 		return tenthMarkSheet;
 	}
-
-	public void setTenthMarkSheet(boolean tenthMarkSheet) {
+	public void setTenthMarkSheet(String tenthMarkSheet) {
 		this.tenthMarkSheet = tenthMarkSheet;
 	}
-
-	public boolean isInterMarkSheet() {
+	public String getInterMarkSheet() {
 		return interMarkSheet;
 	}
-
-	public void setInterMarkSheet(boolean interMarkSheet) {
+	public void setInterMarkSheet(String interMarkSheet) {
 		this.interMarkSheet = interMarkSheet;
 	}
-
 	public boolean isDocTermsAndConditions() {
 		return docTermsAndConditions;
 	}
-
 	public void setDocTermsAndConditions(boolean docTermsAndConditions) {
 		this.docTermsAndConditions = docTermsAndConditions;
 	}
-
 	public double getAdmissionFee() {
 		return admissionFee;
 	}
-
 	public void setAdmissionFee(double admissionFee) {
 		this.admissionFee = admissionFee;
 	}
-
 	public double getTuitionFee() {
 		return tuitionFee;
 	}
-
 	public void setTuitionFee(double tuitionFee) {
 		this.tuitionFee = tuitionFee;
 	}
-
 	public double getOtherFee() {
 		return otherFee;
 	}
-
 	public void setOtherFee(double otherFee) {
 		this.otherFee = otherFee;
 	}
-
 	public String getInterRollNumber() {
 		return interRollNumber;
 	}
-
 	public void setInterRollNumber(String interRollNumber) {
 		this.interRollNumber = interRollNumber;
 	}
-
 	public String getInterBoardName() {
 		return interBoardName;
 	}
-
 	public void setInterBoardName(String interBoardName) {
 		this.interBoardName = interBoardName;
 	}
-
 	public int getInterPassingYear() {
 		return interPassingYear;
 	}
-
 	public void setInterPassingYear(int interPassingYear) {
 		this.interPassingYear = interPassingYear;
 	}
-
 	public double getInterPercentageObtained() {
 		return interPercentageObtained;
 	}
-
 	public void setInterPercentageObtained(double interPercentageObtained) {
 		this.interPercentageObtained = interPercentageObtained;
 	}
-
 	public String getTypeOfDisability() {
 		return typeOfDisability;
 	}
-
 	public void setTypeOfDisability(String typeOfDisability) {
 		this.typeOfDisability = typeOfDisability;
 	}
-
 	public double getPercentageOfDisability() {
 		return percentageOfDisability;
 	}
-
 	public void setPercentageOfDisability(double percentageOfDisability) {
 		this.percentageOfDisability = percentageOfDisability;
 	}
-
 	public String getMaritalStatus() {
 		return maritalStatus;
 	}
-
 	public void setMaritalStatus(String maritalStatus) {
 		this.maritalStatus = maritalStatus;
 	}
-
 	public String getParentsProfession() {
 		return parentsProfession;
 	}
-
 	public void setParentsProfession(String parentsProfession) {
 		this.parentsProfession = parentsProfession;
 	}
-
 	public boolean isDisabled() {
 		return disabled;
 	}
-
 	public void setDisabled(boolean disabled) {
 		this.disabled = disabled;
 	}
-
 	public String getSscRollNumber() {
 		return sscRollNumber;
 	}
-
 	public void setSscRollNumber(String sscRollNumber) {
 		this.sscRollNumber = sscRollNumber;
 	}
-
 	public String getSscBoardName() {
 		return sscBoardName;
 	}
-
 	public void setSscBoardName(String sscBoardName) {
 		this.sscBoardName = sscBoardName;
 	}
-
 	public int getSscPassingYear() {
 		return sscPassingYear;
 	}
-
 	public void setSscPassingYear(int sscPassingYear) {
 		this.sscPassingYear = sscPassingYear;
 	}
-
 	public double getSscPercentageObtained() {
 		return sscPercentageObtained;
 	}
-
 	public void setSscPercentageObtained(double sscPercentageObtained) {
 		this.sscPercentageObtained = sscPercentageObtained;
 	}
 	
 	
-}
+	
+	}

@@ -21,29 +21,30 @@ public class BasicDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "basic_gen")
 	@SequenceGenerator(name = "basic_gen", sequenceName = "basic_seq", allocationSize = 1)
 	private int id;
+	/*
 	@JsonBackReference
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "aadharNumber")
 	private StudentRegistrationForm studentRegistrationForm;
+	*/
 	private String religion;
 	private String communityOrCategory;
 	private String fatherName;
 	private String motherName;
 	private double familyIncome;
-	private int scholarShipId;
+	private String scholarShipName;
 	
-	public BasicDetails(int id, StudentRegistrationForm studentRegistrationForm, String religion,
-			String communityOrCategory, String fatherName, String motherName, double familyIncome, int scholarShipId) {
+	public BasicDetails(int id,  String religion,
+			String communityOrCategory, String fatherName, String motherName, double familyIncome, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.religion = religion;
 		this.communityOrCategory = communityOrCategory;
 		this.fatherName = fatherName;
 		this.motherName = motherName;
 		this.familyIncome = familyIncome;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
 	
 	public BasicDetails() {
@@ -56,14 +57,6 @@ public class BasicDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public String getReligion() {
@@ -106,12 +99,12 @@ public class BasicDetails {
 		this.familyIncome = familyIncome;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
 	
 	

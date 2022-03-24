@@ -49,8 +49,7 @@ public class JavaObjectTransformer {
 		academicDetails.setPreviousClassCourse(studentRegistrationFormDTO.getPreviousClassCourse());
 		academicDetails.setPreviousPassingYear(studentRegistrationFormDTO.getPreviousPassingYear());
 		academicDetails.setPreviousPercentage(studentRegistrationFormDTO.getPreviousPercentage());
-		academicDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-		academicDetails.setStudentRegistrationForm(registrationForm);
+		academicDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 				
 
 		BasicDetails basicDetails = new BasicDetails();
@@ -59,8 +58,7 @@ public class JavaObjectTransformer {
 		basicDetails.setFatherName(studentRegistrationFormDTO.getFatherName());
 		basicDetails.setMotherName(studentRegistrationFormDTO.getMotherName());
 		basicDetails.setFamilyIncome(studentRegistrationFormDTO.getFamilyIncome());
-		basicDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-		basicDetails.setStudentRegistrationForm(registrationForm);
+		basicDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 	
 	   ContactDetails contactDetails =new ContactDetails();
 	   contactDetails.setState(studentRegistrationFormDTO.getState());
@@ -69,38 +67,34 @@ public class JavaObjectTransformer {
 	   contactDetails.setHouseNumber(studentRegistrationFormDTO.getHouseNumber());
 	   contactDetails.setStreetNumber(studentRegistrationFormDTO.getStreetNumber());
 	   contactDetails.setPinCode(studentRegistrationFormDTO.getPinCode());
-	   contactDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-	   contactDetails.setStudentRegistrationForm(registrationForm);
+	   contactDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 	   
 	   DocumentsUpload documentsUploads =new DocumentsUpload();
-	   documentsUploads.setDomicileCert(studentRegistrationFormDTO.isDomicileCert());
-	   documentsUploads.setStudentPhoto(studentRegistrationFormDTO.isStudentPhoto());
-	   documentsUploads.setInstituteIdCard(studentRegistrationFormDTO.isInstituteIdCard());
-	   documentsUploads.setCasteOrIncomeCert(studentRegistrationFormDTO.isCasteOrIncomeCert());
-	   documentsUploads.setPreviousYearMarkSheet(studentRegistrationFormDTO.isPreviousYearMarkSheet());
-	   documentsUploads.setFeeReceiptOfCurrentYear(studentRegistrationFormDTO.isFeeReceiptOfCurrentYear());
-	   documentsUploads.setBankPassbook(studentRegistrationFormDTO.isBankPassbook());
-	   documentsUploads.setAadharCard(studentRegistrationFormDTO.isAadharCard());
-	   documentsUploads.setTenthMarkSheet(studentRegistrationFormDTO.isTenthMarkSheet());
-	   documentsUploads.setInterMarkSheet(studentRegistrationFormDTO.isInterMarkSheet());
+	   documentsUploads.setDomicileCert(studentRegistrationFormDTO.getDomicileCert());
+	   documentsUploads.setStudentPhoto(studentRegistrationFormDTO.getStudentPhoto());
+	   documentsUploads.setInstituteIdCard(studentRegistrationFormDTO.getInstituteIdCard());
+	   documentsUploads.setCasteOrIncomeCert(studentRegistrationFormDTO.getCasteOrIncomeCert());
+	   documentsUploads.setPreviousYearMarkSheet(studentRegistrationFormDTO.getPreviousYearMarkSheet());
+	   documentsUploads.setFeeReceiptOfCurrentYear(studentRegistrationFormDTO.getFeeReceiptOfCurrentYear());
+	   documentsUploads.setBankPassbook(studentRegistrationFormDTO.getBankPassbook());
+	   documentsUploads.setAadharCard(studentRegistrationFormDTO.getAadharCard());
+	   documentsUploads.setTenthMarkSheet(studentRegistrationFormDTO.getTenthMarkSheet());
+	   documentsUploads.setInterMarkSheet(studentRegistrationFormDTO.getInterMarkSheet());
 	   documentsUploads.setDocTermsAndConditions(studentRegistrationFormDTO.isDocTermsAndConditions());
-	   documentsUploads.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-	   documentsUploads.setStudentRegistrationForm(registrationForm);
+	   documentsUploads.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 	   
 		FeeDetails feeDetails = new FeeDetails();
 		feeDetails.setAdmissionFee(studentRegistrationFormDTO.getAdmissionFee());
 		feeDetails.setTuitionFee(studentRegistrationFormDTO.getTuitionFee());
 		feeDetails.setOtherFee(studentRegistrationFormDTO.getOtherFee());
-		feeDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-		feeDetails.setStudentRegistrationForm(registrationForm);
+		feeDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 		
 		IntermediateDetails intermediateDetails = new IntermediateDetails();
 		intermediateDetails.setInterRollNumber(studentRegistrationFormDTO.getInterRollNumber());
 		intermediateDetails.setInterBoardName(studentRegistrationFormDTO.getInterBoardName());
 		intermediateDetails.setInterPassingYear(studentRegistrationFormDTO.getInterPassingYear());
 		intermediateDetails.setInterPercentageObtained(studentRegistrationFormDTO.getInterPercentageObtained());
-		intermediateDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-		intermediateDetails.setStudentRegistrationForm(registrationForm);
+		intermediateDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 		
 		OtherPersonalDetails otherPersonalDetails = new OtherPersonalDetails();
 		otherPersonalDetails.setDisabled(studentRegistrationFormDTO.isDisabled());
@@ -108,16 +102,14 @@ public class JavaObjectTransformer {
 		otherPersonalDetails.setPercentageOfDisability(studentRegistrationFormDTO.getPercentageOfDisability());
 		otherPersonalDetails.setMaritalStatus(studentRegistrationFormDTO.getMaritalStatus());
 		otherPersonalDetails.setParentsProfession(studentRegistrationFormDTO.getParentsProfession());
-		otherPersonalDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-		otherPersonalDetails.setStudentRegistrationForm(registrationForm);		
+		otherPersonalDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 				
 		TenthDetails tenthDetails =new TenthDetails();
 		tenthDetails.setSscRollNumber(studentRegistrationFormDTO.getSscRollNumber());
 		tenthDetails.setSscBoardName(studentRegistrationFormDTO.getSscBoardName());
 		tenthDetails.setSscPassingYear(studentRegistrationFormDTO.getSscPassingYear());
 		tenthDetails.setSscPercentageObtained(studentRegistrationFormDTO.getSscPercentageObtained());
-		tenthDetails.setScholarShipId(studentRegistrationFormDTO.getScholarShipId());
-		tenthDetails.setStudentRegistrationForm(registrationForm);
+		tenthDetails.setScholarShipName(studentRegistrationFormDTO.getScholarShipName());
 		
 		registrationForm.setAcademicDetailsList(Arrays.asList(academicDetails));
 		registrationForm.setBasicDetails(Arrays.asList(basicDetails));
@@ -147,14 +139,30 @@ public class JavaObjectTransformer {
 
 	public static StudentRegistrationFormDTO buildAndGetStudentDTOByEntity(
 			StudentRegistrationForm studentRegistrationForm) {
-		AcademicDetails academicDetailsList = studentRegistrationForm.getAcademicDetailsList().get(0);
-		BasicDetails basicDetails = studentRegistrationForm.getBasicDetails().get(0);
-		ContactDetails contactDetails = studentRegistrationForm.getContactDetails().get(0);
-		DocumentsUpload documentsUploads = studentRegistrationForm.getDocumentsUploads().get(0);
-		FeeDetails feeDetails = studentRegistrationForm.getFeeDetails().get(0);
-		IntermediateDetails intermediateDetails = studentRegistrationForm.getIntermediateDetails().get(0);
-		OtherPersonalDetails otherPersonalDetails = studentRegistrationForm.getOtherPersonalDetails().get(0);
-		TenthDetails tenthDetails = studentRegistrationForm.getTenthDetails().get(0);
+		AcademicDetails academicDetailsList = studentRegistrationForm.getAcademicDetailsList().isEmpty()!=true 
+				? studentRegistrationForm.getAcademicDetailsList().get(0) : new AcademicDetails();
+		
+		BasicDetails basicDetails = studentRegistrationForm.getBasicDetails().isEmpty()!=true 
+				? studentRegistrationForm.getBasicDetails().get(0) : new BasicDetails();
+		
+		ContactDetails contactDetails = studentRegistrationForm.getContactDetails().isEmpty()!=true
+				? studentRegistrationForm.getContactDetails().get(0) : new ContactDetails();
+		
+		DocumentsUpload documentsUploads = studentRegistrationForm.getDocumentsUploads().isEmpty() !=true
+				? studentRegistrationForm.getDocumentsUploads().get(0) : new DocumentsUpload();
+		
+		FeeDetails feeDetails = studentRegistrationForm.getFeeDetails().isEmpty() !=true
+				? studentRegistrationForm.getFeeDetails().get(0) : new FeeDetails();
+		
+		IntermediateDetails intermediateDetails = studentRegistrationForm.getIntermediateDetails().isEmpty() !=true
+				? studentRegistrationForm.getIntermediateDetails().get(0) : new IntermediateDetails();
+		
+		OtherPersonalDetails otherPersonalDetails = studentRegistrationForm.getOtherPersonalDetails().isEmpty() !=true
+				? studentRegistrationForm.getOtherPersonalDetails().get(0) : new OtherPersonalDetails();
+		
+		TenthDetails tenthDetails = studentRegistrationForm.getTenthDetails().isEmpty() !=true
+				? studentRegistrationForm.getTenthDetails().get(0) : new TenthDetails();
+		
 
 		StudentRegistrationFormDTO studentRegistrationFormDTO=new StudentRegistrationFormDTO();
 		studentRegistrationFormDTO.setAadharNumber(studentRegistrationForm.getAadharNumber());
@@ -181,7 +189,7 @@ public class JavaObjectTransformer {
 		studentRegistrationFormDTO.setPreviousClassCourse(academicDetailsList.getPreviousClassCourse());
 		studentRegistrationFormDTO.setPreviousPassingYear(academicDetailsList.getPreviousPassingYear());
 		studentRegistrationFormDTO.setPreviousPercentage(academicDetailsList.getPreviousPercentage());
-		studentRegistrationFormDTO.setScholarShipId(academicDetailsList.getScholarShipId());
+		studentRegistrationFormDTO.setScholarShipName(academicDetailsList.getScholarShipName());
 		studentRegistrationFormDTO.setReligion(basicDetails.getReligion());
 		studentRegistrationFormDTO.setCommunityOrCategory(basicDetails.getCommunityOrCategory());
 		studentRegistrationFormDTO.setFatherName(basicDetails.getFatherName());
@@ -193,16 +201,16 @@ public class JavaObjectTransformer {
 		studentRegistrationFormDTO.setHouseNumber(contactDetails.getHouseNumber());
 		studentRegistrationFormDTO.setStreetNumber(contactDetails.getStreetNumber());
 		studentRegistrationFormDTO.setPinCode(contactDetails.getPinCode());
-		studentRegistrationFormDTO.setDomicileCert(documentsUploads.isDomicileCert());
-		studentRegistrationFormDTO.setStudentPhoto(documentsUploads.isStudentPhoto());
-		studentRegistrationFormDTO.setInstituteIdCard(documentsUploads.isInstituteIdCard());
-		studentRegistrationFormDTO.setCasteOrIncomeCert(documentsUploads.isCasteOrIncomeCert());
-		studentRegistrationFormDTO.setPreviousYearMarkSheet(documentsUploads.isPreviousYearMarkSheet());
-		studentRegistrationFormDTO.setFeeReceiptOfCurrentYear(documentsUploads.isFeeReceiptOfCurrentYear());
-		studentRegistrationFormDTO.setBankPassbook(documentsUploads.isBankPassbook());
-		studentRegistrationFormDTO.setAadharCard(documentsUploads.isAadharCard());
-		studentRegistrationFormDTO.setTenthMarkSheet(documentsUploads.isTenthMarkSheet());
-		studentRegistrationFormDTO.setInterMarkSheet(documentsUploads.isInterMarkSheet());
+		studentRegistrationFormDTO.setDomicileCert(documentsUploads.getDomicileCert());
+		studentRegistrationFormDTO.setStudentPhoto(documentsUploads.getStudentPhoto());
+		studentRegistrationFormDTO.setInstituteIdCard(documentsUploads.getInstituteIdCard());
+		studentRegistrationFormDTO.setCasteOrIncomeCert(documentsUploads.getCasteOrIncomeCert());
+		studentRegistrationFormDTO.setPreviousYearMarkSheet(documentsUploads.getPreviousYearMarkSheet());
+		studentRegistrationFormDTO.setFeeReceiptOfCurrentYear(documentsUploads.getFeeReceiptOfCurrentYear());
+		studentRegistrationFormDTO.setBankPassbook(documentsUploads.getBankPassbook());
+		studentRegistrationFormDTO.setAadharCard(documentsUploads.getAadharCard());
+		studentRegistrationFormDTO.setTenthMarkSheet(documentsUploads.getTenthMarkSheet());
+		studentRegistrationFormDTO.setInterMarkSheet(documentsUploads.getInterMarkSheet());
 		studentRegistrationFormDTO.setDocTermsAndConditions(documentsUploads.isDocTermsAndConditions());
 		studentRegistrationFormDTO.setAdmissionFee(feeDetails.getAdmissionFee());
 		studentRegistrationFormDTO.setTuitionFee(feeDetails.getTuitionFee());

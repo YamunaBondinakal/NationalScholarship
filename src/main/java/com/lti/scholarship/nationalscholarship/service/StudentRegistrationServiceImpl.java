@@ -3,6 +3,7 @@ package com.lti.scholarship.nationalscholarship.service;
 import static com.lti.scholarship.nationalscholarship.transformer.JavaObjectTransformer.buildAndGetStudentDTOByEntity;
 import static com.lti.scholarship.nationalscholarship.transformer.JavaObjectTransformer.buildAndGetStudentEntityByDTO;
 import com.lti.scholarship.nationalscholarship.dto.studentregform.StudentRegistrationFormDTO;
+import com.lti.scholarship.nationalscholarship.entity.LoginForm;
 import com.lti.scholarship.nationalscholarship.entity.StudentRegistrationForm;
 import com.lti.scholarship.nationalscholarship.repository.StudentRegistrationRepository;
 import com.lti.scholarship.nationalscholarship.service.impl.StudentRegistrationService;
@@ -25,10 +26,10 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 		String message = "Some Exception Occured while connecting to database";
 		final boolean value = studentRegistrationRepository.existsById(username);
 		if (value == true) {
-			Optional<StudentRegistrationForm> studentRegistrationForm = studentRegistrationRepository
-					.findById(username);
+			Optional<String> studentRegistrationForm = studentRegistrationRepository
+					.getLoginDetails(username);
 			if (studentRegistrationForm.isPresent() == true) {
-				if (studentRegistrationForm.get().getPassword().equals(password)) {
+				if (studentRegistrationForm.get().equals(password)) {
 					message = "Success";
 				} else {
 					message = "Invalid Password For UserName";
@@ -52,9 +53,9 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 	public List<StudentRegistrationFormDTO> findAllStudentRegistrationFormsClassic() {
 		List<StudentRegistrationForm> registrationFormList = (List<StudentRegistrationForm>) studentRegistrationRepository
 				.findAll();
-
-		return (Optional.ofNullable(registrationFormList).orElse(Collections.emptyList()).stream()
-				.map(JavaObjectTransformer::buildAndGetStudentDTOByEntity).collect(Collectors.toList()));
+		
+		return registrationFormList.isEmpty()!=true ? registrationFormList.stream()
+				.map(JavaObjectTransformer::buildAndGetStudentDTOByEntity).collect(Collectors.toList()) : Collections.EMPTY_LIST;
 	}
 
 	// Asusual POJO class StudentRegistrationForm structure send it to client.
@@ -96,10 +97,18 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 		StudentRegistrationForm registrationForm = buildAndGetStudentEntityByDTO(studentRegistrationFormDTO);
 		StudentRegistrationForm studentRegistrationForm = new StudentRegistrationForm();
 		if (registrationForm.getPassword() == null && registrationForm.getConfirmPassword() == null) {
-			studentRegistrationForm = updateRegFormOnActualForm(studentRegistrationForm,
-					findStudentRegistrationFormJson(studentRegistrationForm.getAadharNumber()).get());
+			studentRegistrationForm = updateRegFormOnActualForm(registrationForm,
+					findStudentRegistrationFormJson(registrationForm.getAadharNumber()).get());
 			studentRegistrationForm = studentRegistrationRepository.save(studentRegistrationForm);
 		} else {
+			registrationForm.setAcademicDetailsList(null);
+			registrationForm.setBasicDetails(null);
+			registrationForm.setContactDetails(null);
+			registrationForm.setDocumentsUploads(null);
+			registrationForm.setFeeDetails(null);
+			registrationForm.setIntermediateDetails(null);
+			registrationForm.setOtherPersonalDetails(null);
+			registrationForm.setTenthDetails(null);
 			studentRegistrationForm = studentRegistrationRepository.save(registrationForm);
 		}
 		return buildAndGetStudentDTOByEntity(studentRegistrationForm);

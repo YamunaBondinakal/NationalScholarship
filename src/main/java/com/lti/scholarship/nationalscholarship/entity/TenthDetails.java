@@ -20,33 +20,35 @@ public class TenthDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tenth_gen")
 	@SequenceGenerator(name = "tenth_gen", sequenceName = "tenth_seq", allocationSize = 1)
 	private int id;
-
-	@JsonBackReference
-	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "aadharNumber")
-	private com.lti.scholarship.nationalscholarship.entity.StudentRegistrationForm studentRegistrationForm;
-
+	/*
+	 * @JsonBackReference
+	 * 
+	 * @ToString.Exclude
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "aadharNumber") private StudentRegistrationForm
+	 * studentRegistrationForm;
+	 */
 	private String sscRollNumber;
 	private String sscBoardName;
 	private int sscPassingYear;
 	private double sscPercentageObtained;
-	private int scholarShipId;
-	
-	public TenthDetails(int id, StudentRegistrationForm studentRegistrationForm, String sscRollNumber,
-			String sscBoardName, int sscPassingYear, double sscPercentageObtained, int scholarShipId) {
+	private String scholarShipName;
+
+	public TenthDetails(int id, String sscRollNumber, String sscBoardName, int sscPassingYear,
+			double sscPercentageObtained, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.sscRollNumber = sscRollNumber;
 		this.sscBoardName = sscBoardName;
 		this.sscPassingYear = sscPassingYear;
 		this.sscPercentageObtained = sscPercentageObtained;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
-	
+
 	public TenthDetails() {
-		
+
 	}
 
 	public int getId() {
@@ -55,15 +57,6 @@ public class TenthDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public com.lti.scholarship.nationalscholarship.entity.StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(
-			com.lti.scholarship.nationalscholarship.entity.StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public String getSscRollNumber() {
@@ -98,14 +91,12 @@ public class TenthDetails {
 		this.sscPercentageObtained = sscPercentageObtained;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
-	
-	
 
 }

@@ -12,7 +12,6 @@ import javax.persistence.SequenceGenerator;
 import lombok.Builder;
 import lombok.ToString;
 
-
 @Builder
 @Entity(name = "tbl_student_inter_details")
 public class IntermediateDetails {
@@ -21,33 +20,35 @@ public class IntermediateDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inter_gen")
 	@SequenceGenerator(name = "inter_gen", sequenceName = "inter_seq", allocationSize = 1)
 	private int id;
-
-	@JsonBackReference
-	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "aadharNumber")
-	private StudentRegistrationForm studentRegistrationForm;
-
+	/*
+	 * @JsonBackReference
+	 * 
+	 * @ToString.Exclude
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "aadharNumber") private StudentRegistrationForm
+	 * studentRegistrationForm;
+	 */
 	private String interRollNumber;
 	private String interBoardName;
 	private int interPassingYear;
 	private double interPercentageObtained;
-	private int scholarShipId;
-	
-	public IntermediateDetails(int id, StudentRegistrationForm studentRegistrationForm, String interRollNumber,
-			String interBoardName, int interPassingYear, double interPercentageObtained, int scholarShipId) {
+	private String scholarShipName;
+
+	public IntermediateDetails(int id, String interRollNumber, String interBoardName, int interPassingYear,
+			double interPercentageObtained, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.interRollNumber = interRollNumber;
 		this.interBoardName = interBoardName;
 		this.interPassingYear = interPassingYear;
 		this.interPercentageObtained = interPercentageObtained;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
-	
+
 	public IntermediateDetails() {
-		
+
 	}
 
 	public int getId() {
@@ -56,14 +57,6 @@ public class IntermediateDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public String getInterRollNumber() {
@@ -98,14 +91,12 @@ public class IntermediateDetails {
 		this.interPercentageObtained = interPercentageObtained;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
-	
-	
 
 }

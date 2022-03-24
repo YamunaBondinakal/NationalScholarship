@@ -20,12 +20,16 @@ public class AcademicDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "academic_gen")
 	@SequenceGenerator(name = "academic_gen", sequenceName = "academic_seq", allocationSize = 1)
 	private int id;
-
-	@JsonBackReference
-	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "aadharNumber")
-	private StudentRegistrationForm studentRegistrationForm;
+	/*
+	 * @JsonBackReference
+	 * 
+	 * @ToString.Exclude
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "aadharNumber") private StudentRegistrationForm
+	 * studentRegistrationForm;
+	 */
 	private String instituteName;
 	private String presentClassOrCourse;
 	private int presentClassOrCourseYear;
@@ -35,15 +39,13 @@ public class AcademicDetails {
 	private String previousClassCourse;
 	private int previousPassingYear;
 	private double previousPercentage;
-	private int scholarShipId;
+	private String scholarShipName;
 
-	public AcademicDetails(int id, StudentRegistrationForm studentRegistrationForm, String instituteName,
-			String presentClassOrCourse, int presentClassOrCourseYear, String modeOfStudy, String classStartDate,
-			String universityOrBoardName, String previousClassCourse, int previousPassingYear,
-			double previousPercentage, int scholarShipId) {
+	public AcademicDetails(int id, String instituteName, String presentClassOrCourse, int presentClassOrCourseYear,
+			String modeOfStudy, String classStartDate, String universityOrBoardName, String previousClassCourse,
+			int previousPassingYear, double previousPercentage, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.instituteName = instituteName;
 		this.presentClassOrCourse = presentClassOrCourse;
 		this.presentClassOrCourseYear = presentClassOrCourseYear;
@@ -53,7 +55,7 @@ public class AcademicDetails {
 		this.previousClassCourse = previousClassCourse;
 		this.previousPassingYear = previousPassingYear;
 		this.previousPercentage = previousPercentage;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
 
 	public AcademicDetails() {
@@ -66,14 +68,6 @@ public class AcademicDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public String getInstituteName() {
@@ -148,12 +142,12 @@ public class AcademicDetails {
 		this.previousPercentage = previousPercentage;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
 
 }

@@ -12,7 +12,6 @@ import javax.persistence.SequenceGenerator;
 import lombok.Builder;
 import lombok.ToString;
 
-
 @Builder
 @Entity(name = "tbl_student_contact_details")
 public class ContactDetails {
@@ -21,35 +20,39 @@ public class ContactDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contact_gen")
 	@SequenceGenerator(name = "contact_gen", sequenceName = "contact_seq", allocationSize = 1)
 	private int id;
-	@JsonBackReference
-	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "aadharNumber")
-	private StudentRegistrationForm studentRegistrationForm;
+	/*
+	 * @JsonBackReference
+	 * 
+	 * @ToString.Exclude
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "aadharNumber") private StudentRegistrationForm
+	 * studentRegistrationForm;
+	 */
 	private String state;
 	private String district;
 	private String blockOrTaluka;
 	private String houseNumber;
 	private String streetNumber;
 	private int pinCode;
-	private int scholarShipId;
-	
-	public ContactDetails(int id, StudentRegistrationForm studentRegistrationForm, String state, String district,
-			String blockOrTaluka, String houseNumber, String streetNumber, int pinCode, int scholarShipId) {
+	private String scholarShipName;
+
+	public ContactDetails(int id, String state, String district, String blockOrTaluka, String houseNumber,
+			String streetNumber, int pinCode, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.state = state;
 		this.district = district;
 		this.blockOrTaluka = blockOrTaluka;
 		this.houseNumber = houseNumber;
 		this.streetNumber = streetNumber;
 		this.pinCode = pinCode;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
-	
+
 	public ContactDetails() {
-		
+
 	}
 
 	public int getId() {
@@ -58,14 +61,6 @@ public class ContactDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public String getState() {
@@ -116,14 +111,12 @@ public class ContactDetails {
 		this.pinCode = pinCode;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
-	
-	
 
 }

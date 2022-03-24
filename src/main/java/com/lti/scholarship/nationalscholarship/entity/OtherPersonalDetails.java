@@ -12,7 +12,6 @@ import javax.persistence.SequenceGenerator;
 import lombok.Builder;
 import lombok.ToString;
 
-
 @Builder
 @Entity(name = "tbl_student_other_details")
 public class OtherPersonalDetails {
@@ -21,36 +20,37 @@ public class OtherPersonalDetails {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "other_gen")
 	@SequenceGenerator(name = "other_gen", sequenceName = "other_seq", allocationSize = 1)
 	private int id;
-
-	@JsonBackReference
-	@ToString.Exclude
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "aadharNumber")
-	private StudentRegistrationForm studentRegistrationForm;
-	
+	/*
+	 * @JsonBackReference
+	 * 
+	 * @ToString.Exclude
+	 * 
+	 * @ManyToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "aadharNumber") private StudentRegistrationForm
+	 * studentRegistrationForm;
+	 */
 	private boolean isDisabled;
 	private String typeOfDisability;
 	private double percentageOfDisability;
 	private String maritalStatus;
 	private String parentsProfession;
-	private int scholarShipId;
-	
-	public OtherPersonalDetails(int id, StudentRegistrationForm studentRegistrationForm, boolean isDisabled,
-			String typeOfDisability, double percentageOfDisability, String maritalStatus, String parentsProfession,
-			int scholarShipId) {
+	private String scholarShipName;
+
+	public OtherPersonalDetails(int id, boolean isDisabled, String typeOfDisability, double percentageOfDisability,
+			String maritalStatus, String parentsProfession, String scholarShipName) {
 		super();
 		this.id = id;
-		this.studentRegistrationForm = studentRegistrationForm;
 		this.isDisabled = isDisabled;
 		this.typeOfDisability = typeOfDisability;
 		this.percentageOfDisability = percentageOfDisability;
 		this.maritalStatus = maritalStatus;
 		this.parentsProfession = parentsProfession;
-		this.scholarShipId = scholarShipId;
+		this.scholarShipName = scholarShipName;
 	}
-	
+
 	public OtherPersonalDetails() {
-		
+
 	}
 
 	public int getId() {
@@ -59,14 +59,6 @@ public class OtherPersonalDetails {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public StudentRegistrationForm getStudentRegistrationForm() {
-		return studentRegistrationForm;
-	}
-
-	public void setStudentRegistrationForm(StudentRegistrationForm studentRegistrationForm) {
-		this.studentRegistrationForm = studentRegistrationForm;
 	}
 
 	public boolean isDisabled() {
@@ -109,14 +101,12 @@ public class OtherPersonalDetails {
 		this.parentsProfession = parentsProfession;
 	}
 
-	public int getScholarShipId() {
-		return scholarShipId;
+	public String getScholarShipName() {
+		return scholarShipName;
 	}
 
-	public void setScholarShipId(int scholarShipId) {
-		this.scholarShipId = scholarShipId;
+	public void setScholarShipName(String scholarShipName) {
+		this.scholarShipName = scholarShipName;
 	}
-	
-	
 
 }
